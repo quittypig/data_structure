@@ -11,7 +11,7 @@ fun main() {
     println(heap) // 4 3 2 1
 
     remove()
-    println(heap) // 3 2 1
+    println(heap) // 3 1 2
 
     remove()
     println(heap) // 2 1
@@ -77,10 +77,12 @@ private fun remove() {
     var currentIndex = 0
     while (true) {
         val currentData = getData(currentIndex)!!
-
         val leftIndex = getLeftIndex(currentIndex)
         val leftData = getData(leftIndex) ?: break
-        if (currentData < leftData) {
+        val rightIndex = getRightIndex(currentIndex)
+        val rightData = getData(rightIndex) ?: break
+
+        if (leftData >= rightData && currentData < leftData) {
             swap(currentIndex, leftIndex)
 
             currentIndex = leftIndex
@@ -88,9 +90,7 @@ private fun remove() {
             break
         }
 
-        val rightIndex = getRightIndex(currentIndex)
-        val rightData = getData(rightIndex) ?: break
-        if (currentData < rightData) {
+        if (leftData <= rightData && currentData < rightData) {
             swap(currentIndex, rightIndex)
 
             currentIndex = rightIndex
