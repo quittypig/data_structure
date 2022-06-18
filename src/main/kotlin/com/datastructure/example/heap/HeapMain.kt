@@ -37,7 +37,7 @@ fun main() {
     println(heap) // 4 3 2 1
 }
 
-fun insert(data: Int) {
+private fun insert(data: Int) {
     var currentIndex: Int? = heapSize
 
     heap.add(data)
@@ -59,7 +59,7 @@ fun insert(data: Int) {
     }
 }
 
-fun remove() {
+private fun remove() {
     if (getRootData() == null) {
         return
     }
@@ -100,15 +100,15 @@ fun remove() {
     }
 }
 
-fun getRootData(): Int? {
+private fun getRootData(): Int? {
     return getData(0)
 }
 
-fun getData(index: Int): Int? {
+private fun getData(index: Int): Int? {
     return heap.getOrNull(index)
 }
 
-fun getParentIndex(index: Int): Int? {
+private fun getParentIndex(index: Int): Int? {
     return if (index == 0) {
         null
     } else if (index % 2 == 0) {
@@ -118,15 +118,15 @@ fun getParentIndex(index: Int): Int? {
     }
 }
 
-fun getLeftIndex(index: Int): Int {
+private fun getLeftIndex(index: Int): Int {
     return index * 2 + 1
 }
 
-fun getRightIndex(index: Int): Int {
+private fun getRightIndex(index: Int): Int {
     return index * 2 + 2
 }
 
-fun swap(firstIndex: Int, secondIndex: Int) {
+private fun swap(firstIndex: Int, secondIndex: Int) {
     val temp = heap[firstIndex]
 
     heap[firstIndex] = heap[secondIndex]
