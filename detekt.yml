@@ -1,5 +1,7 @@
 style:
   LoopWithTooManyJumpStatements:
     active: false
+  UnusedPrivateMember:
+    active: false
   MagicNumber:
     active: false
