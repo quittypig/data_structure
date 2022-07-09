@@ -3,6 +3,7 @@ package com.datastructure.example.heap
 
 fun main() {
     val heap = Heap()
+
     heap.insert(1)
     heap.insert(2)
     heap.insert(3)

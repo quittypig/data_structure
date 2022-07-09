@@ -9,6 +9,11 @@ class Heap {
             return _nodes.toList()
         }
 
+    val rootNode: Int?
+        get() {
+            return _nodes.firstOrNull()
+        }
+
     fun insert(data: Int) {
         var currentIndex: Int? = heapSize
 
@@ -54,21 +59,17 @@ class Heap {
             val rightIndex = getRightIndex(currentIndex)
             val rightData = getData(rightIndex) ?: break
 
-            if (leftData >= rightData && currentData < leftData) {
+            currentIndex = if (currentData > leftData && currentData > rightData) {
+                break
+            } else if (leftData >= rightData && currentData < leftData) {
                 swap(currentIndex, leftIndex)
 
-                currentIndex = leftIndex
-
-                break
-            }
-
-            if (leftData <= rightData && currentData < rightData) {
+                leftIndex
+            } else {
                 swap(currentIndex, rightIndex)
 
-                currentIndex = rightIndex
+                rightIndex
             }
-
-            break
         }
     }
 

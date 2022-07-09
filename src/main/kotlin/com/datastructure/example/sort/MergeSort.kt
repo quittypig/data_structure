@@ -1,7 +1,5 @@
 package com.datastructure.example.sort
 
-import org.w3c.dom.ranges.Range
-import java.util.stream.Stream
 import kotlin.math.ceil
 
 class MergeSort private constructor() {
